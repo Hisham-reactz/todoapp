@@ -125,8 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       txtInputedt == widget.item.indexOf(items),
                   child: ListTile(
                       key: ValueKey(items),
-                      tileColor: Colors
-                          .deepOrange[(widget.item.indexOf(items) + 1) * 100],
+                      tileColor: Colors.deepOrange[
+                          widget.item.indexOf(items) < 8
+                              ? ((widget.item.indexOf(items) + 1) * 100)
+                              : 900],
                       title: TextFormField(
                         initialValue: items['val'],
                         onFieldSubmitted: (val) =>
@@ -143,8 +145,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             onTap: () =>
                                 items['done'] == 0 ? ontapEdit(items) : null,
                             tileColor: items['done'] == 0
-                                ? Colors.deepOrange[
-                                    (widget.item.indexOf(items) + 1) * 100]
+                                ? Colors.deepOrange[widget.item.indexOf(items) <
+                                        9
+                                    ? ((widget.item.indexOf(items) + 1) * 100)
+                                    : 900]
                                 : Colors.grey,
                             title: Text(
                               items['val'],
