@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onRefresh: onRefresh,
             child: ReorderableListView(
               children: <Widget>[
-                for (final items in widget.item.reversed)
+                for (final items in widget.item)
                   Visibility(
                       key: ValueKey(items),
                       visible: items['val'] == '' ||
