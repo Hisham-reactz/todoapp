@@ -71,9 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future onRefresh() {
-    setState(() {
-      widget.item.add({'done': 0, 'val': ''});
-    });
+    if (widget.item[widget.item.length - 1]['val'] != '') {
+      setState(() {
+        widget.item.add({'done': 0, 'val': ''});
+      });
+    }
     return Future.value();
   }
 
