@@ -141,7 +141,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Card(
                               elevation: 2,
                               child: ListTile(
-                                onTap: () => ontapEdit(items),
+                                onTap: () => items['done'] == 0
+                                    ? ontapEdit(items)
+                                    : null,
                                 tileColor: items['done'] == 0
                                     ? Colors.deepOrange[
                                         (widget.item.indexOf(items) + 1) * 100]
