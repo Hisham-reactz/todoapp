@@ -71,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future onRefresh() {
-    if (widget.item[widget.item.length - 1]['val'] != '') {
+    if (widget.item.isEmpty ||
+        widget.item[widget.item.length - 1]['val'] != '') {
       setState(() {
         widget.item.add({'done': 0, 'val': ''});
       });
