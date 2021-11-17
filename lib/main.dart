@@ -126,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: ListTile(
                       key: ValueKey(items),
                       tileColor: Colors.deepOrange[
-                          widget.item.indexOf(items) < 8
+                          widget.item.indexOf(items) < 9
                               ? ((widget.item.indexOf(items) + 1) * 100)
                               : 900],
                       title: TextFormField(
