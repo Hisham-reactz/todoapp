@@ -30,6 +30,18 @@ class MyHomePage extends StatefulWidget {
     {'done': 0, 'val': 'Ok3'},
     {'done': 0, 'val': 'Ok4'},
     {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
+    {'done': 0, 'val': 'Ok5'},
   ];
 
   @override
@@ -107,63 +119,61 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text(
-            widget.title,
-          ),
-          centerTitle: true,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text(
+          widget.title,
         ),
-        body: Center(
-          child: RefreshIndicator(
-            onRefresh: onRefresh,
-            child: ReorderableListView(
-              children: <Widget>[
-                for (final items in widget.item)
-                  Visibility(
+        centerTitle: true,
+      ),
+      body: RefreshIndicator(
+        onRefresh: onRefresh,
+        child: ReorderableListView(
+          children: <Widget>[
+            for (final items in widget.item)
+              Visibility(
+                  key: ValueKey(items),
+                  visible: items['val'] == '' ||
+                      txtInputedt == widget.item.indexOf(items),
+                  child: ListTile(
                       key: ValueKey(items),
-                      visible: items['val'] == '' ||
-                          txtInputedt == widget.item.indexOf(items),
-                      child: ListTile(
-                          key: ValueKey(items),
-                          tileColor: Colors.deepOrange[
-                              (widget.item.indexOf(items) + 1) * 100],
-                          title: TextFormField(
-                            initialValue: items['val'],
-                            onFieldSubmitted: (val) => editItem(
-                                items, widget.item.indexOf(items), val),
-                          )),
-                      replacement: Dismissible(
-                          onDismissed: (dir) {
-                            onDismiss(dir, items);
-                          },
-                          key: ValueKey(items),
-                          child: Card(
-                              elevation: 2,
-                              child: ListTile(
-                                onTap: () => items['done'] == 0
-                                    ? ontapEdit(items)
-                                    : null,
-                                tileColor: items['done'] == 0
-                                    ? Colors.deepOrange[
-                                        (widget.item.indexOf(items) + 1) * 100]
-                                    : Colors.grey,
-                                title: Text(
-                                  items['val'],
-                                  style: TextStyle(
-                                      decoration: items['done'] == 0
-                                          ? TextDecoration.none
-                                          : TextDecoration.lineThrough),
-                                ),
-                                leading: const Icon(
-                                  Icons.work,
-                                  color: Colors.black,
-                                ),
-                              )))),
-              ],
-              onReorder: reorderData,
-            ),
-          ),
-        ));
+                      tileColor: Colors
+                          .deepOrange[(widget.item.indexOf(items) + 1) * 100],
+                      title: TextFormField(
+                        initialValue: items['val'],
+                        onFieldSubmitted: (val) =>
+                            editItem(items, widget.item.indexOf(items), val),
+                      )),
+                  replacement: Dismissible(
+                      onDismissed: (dir) {
+                        onDismiss(dir, items);
+                      },
+                      key: ValueKey(items),
+                      child: Card(
+                          elevation: 2,
+                          child: ListTile(
+                            onTap: () =>
+                                items['done'] == 0 ? ontapEdit(items) : null,
+                            tileColor: items['done'] == 0
+                                ? Colors.deepOrange[
+                                    (widget.item.indexOf(items) + 1) * 100]
+                                : Colors.grey,
+                            title: Text(
+                              items['val'],
+                              style: TextStyle(
+                                  decoration: items['done'] == 0
+                                      ? TextDecoration.none
+                                      : TextDecoration.lineThrough),
+                            ),
+                            leading: const Icon(
+                              Icons.work,
+                              color: Colors.black,
+                            ),
+                          )))),
+          ],
+          onReorder: reorderData,
+        ),
+      ),
+    );
   }
 }
