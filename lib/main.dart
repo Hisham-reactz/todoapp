@@ -30,18 +30,6 @@ class MyHomePage extends StatefulWidget {
     {'done': 0, 'val': 'Ok3'},
     {'done': 0, 'val': 'Ok4'},
     {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
-    {'done': 0, 'val': 'Ok5'},
   ];
 
   @override
