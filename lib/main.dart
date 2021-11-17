@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       } else {
         widget.item[widget.item.indexOf(items)] = {
           'done': 1,
-          'val': 'Done${widget.item[widget.item.length - 1]['val']}'
+          'val': '${widget.item[widget.item.indexOf(items)]['val']}'
         };
       }
     });
